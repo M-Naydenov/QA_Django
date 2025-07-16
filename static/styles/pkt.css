@@ -1,0 +1,104 @@
+.pkt-widget {
+    padding:0 0 0 0;
+    margin: 3.5rem 3.5rem auto 3.5rem;
+    border-radius: 1rem;
+    background-color: var(--base-clr);
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.tabs-pkt {
+    --tab-count: 10;
+    --active: 0;
+    position: relative;
+    display: flex;
+    isolation: isolate;
+    height: 3.5rem;
+    border-block-end: 1px solid var(--base-clr);
+    overflow: hidden;
+}
+
+.tabs-pkt input {
+    display: none;
+}
+
+.tabs-pkt label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color:  var(--secondary-text-clr);
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+
+.tabs-pkt input:checked + label {
+    color: var(--secondary-text-clr);
+}
+
+.tabs-pkt::after {
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    content: "";
+    inset: 0 0 -1px;
+    width: calc((100%/var(--tab-count)) - 1px);
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: 1px solid var(--base-clr);
+    border-block-end: none;
+    background-color: var(--accent-clr);
+    height: auto;
+    min-height:0;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(calc(var(--active) * 100%));
+
+}
+
+.tab-content {
+    position: relative;
+    color: var(--secondary-text-clr);
+    padding: 1rem;
+}
+
+#pkt-counter {
+    font-size: 12px;
+    position: absolute;
+    color: var(--secondary-text-clr);
+    bottom: 5%;
+    right: 3%;
+}
+
+[class^="content-"] {
+    display: none;
+
+}
+
+.pkt-widget:has(#tab1:checked) .content-Q1,
+.pkt-widget:has(#tab2:checked) .content-Q2,
+.pkt-widget:has(#tab3:checked) .content-Q3,
+.pkt-widget:has(#tab4:checked) .content-Q4,
+.pkt-widget:has(#tab5:checked) .content-Q5,
+.pkt-widget:has(#tab6:checked) .content-Q6,
+.pkt-widget:has(#tab7:checked) .content-Q7,
+.pkt-widget:has(#tab8:checked) .content-Q8,
+.pkt-widget:has(#tab9:checked) .content-Q9,
+.pkt-widget:has(#tab10:checked) .content-Q10 {
+    display: block;
+}
+
+.tabs-pkt:has(#tab1:checked) { --active: 0; }
+.tabs-pkt:has(#tab2:checked) { --active: 1; }
+.tabs-pkt:has(#tab3:checked) { --active: 2; }
+.tabs-pkt:has(#tab4:checked) { --active: 3; }
+.tabs-pkt:has(#tab5:checked) { --active: 4; }
+.tabs-pkt:has(#tab6:checked) { --active: 5; }
+.tabs-pkt:has(#tab7:checked) { --active: 6; }
+.tabs-pkt:has(#tab8:checked) { --active: 7; }
+.tabs-pkt:has(#tab9:checked) { --active: 8; }
+.tabs-pkt:has(#tab10:checked) { --active: 9; }

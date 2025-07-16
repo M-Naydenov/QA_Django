@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="evaluation-widget">
+        <div class="tabs">
+            <input type="radio"
+                   id="criteria"
+                   name="tabs"
+                   checked
+            />
+            <label for="criteria">Assessment Criteria Not Met</label>
+
+            <input type="radio"
+                   id="case_details"
+                   name="tabs"
+            />
+            <label for="case_details">Supporting Case Notes</label>
+        </div>
+
+        <div class="tab-content">
+            <div class="content-criteria">
+                <p>Criteria</p>
+            </div>
+
+            <div class="content-details">
+                <p>Details</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

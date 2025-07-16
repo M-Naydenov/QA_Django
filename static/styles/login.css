@@ -1,0 +1,191 @@
+.login-container {
+    width:50vw;
+    max-width:none;
+    height: fit-content;
+    padding:0 0 0 0;
+    margin: 7rem auto;
+    border-radius: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+    display:flex;
+}
+
+.register-container {
+    width:70%;
+    max-width:none;
+    height: fit-content;
+    padding:0 0 0 0;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+    display:flex;
+}
+
+
+.login-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border: 1px;
+    padding: 1rem;
+    gap:1.5rem;
+
+}
+
+.login-form-title {
+    padding: 0.9rem 0.5rem 0.9rem 0;
+    align-content: flex-start;
+}
+.login-form .login-form-field {
+    position: relative;
+    display: flex;
+    width: 93%;
+    align-self:flex-start;
+    flex-direction: column;
+
+}
+
+.login-form label {
+    color: var(--secondary-text-clr)
+}
+
+.login-form input {
+    color: var(--secondary-text-clr);
+    caret-color: var(--secondary-text-clr);
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--line-clr);
+    background-color: transparent;
+    height: 5px;
+    padding: 1rem;
+}
+
+input:-webkit-autofill {
+    background-color: transparent;
+    -webkit-box-shadow: 0 0 0 1000px var(--base-clr) inset !important;
+    -webkit-text-fill-color: var(--secondary-text-clr);
+    font-family: inherit;
+    transition: background-color 5000s ease-in-out 0s;
+}
+input::-ms-reveal,
+input::-ms-clear {
+    display: none;
+}
+
+.login-form input::placeholder {
+    color: var(--line-clr);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.login-form .password-wrapper input {
+    width: 85%;
+}
+
+.register-container .login-form .password-wrapper input {
+    width: 90%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.1rem;
+    top:50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.toggle-password svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--secondary-text-clr);
+}
+.toggle-password svg:hover {
+    fill: var(--accent-clr);
+}
+
+.login-form .toggle-password {
+    color: var(--secondary-text-clr);
+}
+
+.login-form span {
+    color: var(--secondary-text-clr)
+}
+
+.login-form-div {
+    flex:1;
+    background-color: var(--base-clr);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.logo-banner {
+    background-color: lightyellow;
+    flex:1.5;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-image: url('../images/login_sofia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center left;
+}
+
+
+.login-button {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    cursor:pointer;
+    align-self: center;
+    color: whitesmoke;
+    background-color: var(--line-clr);
+    border-color: var(--line-clr);
+    border-radius: 9px;
+    border-style: solid;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.login-button:hover {
+    background-color: var(--accent-clr);
+    border-color: var(--accent-clr);
+}
+
+
+.register-container .login-form-div .login-form .selector {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23333" d="M6 9L1 4h10z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 40px;
+    width: 100%;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+    border-color: var(--line-clr);
+    background-color: transparent;
+    border-bottom: 1px solid var(--line-clr);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    cursor: pointer;
+
+}
+
+.register-container .login-form-div .login-form .selector option {
+  background-color: var(--line-clr);
+  color: whitesmoke;
+  padding: 0.5rem;
+  border:transparent;
+  box-shadow: none;
+}

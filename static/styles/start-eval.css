@@ -1,0 +1,104 @@
+.select-agent-container {
+    width:40vw;
+    max-width:400px;
+    height: fit-content;
+    padding:0 0 0 0;
+    margin: 7rem auto;
+    border-radius: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+
+}
+
+.select-agent-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: space-evenly;
+    background-color: var(--base-clr);
+    border-bottom-left-radius:9px;
+    border-bottom-right-radius:9px;
+    border: 1px;
+    padding: 1rem;
+    gap:1.5rem;
+
+
+}
+
+.select-agent-container .purple-header {
+    position: relative;
+    text-align: center;
+    height: 45px;
+    padding: 1rem;
+    background-color: #43268B;
+    color: whitesmoke;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+}
+
+.select-agent-form .form-element {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 60%;
+}
+
+.select-agent-form .submit-button {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    cursor:pointer;
+    align-self: center;
+    color: whitesmoke;
+    background-color: var(--line-clr);
+    border-color: var(--line-clr);
+    border-radius: 9px;
+    border-style: solid;
+    font-weight: bold;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.select-agent-form .submit-button:hover {
+    background-color: var(--accent-clr);
+    border-color: var(--accent-clr);
+}
+
+.select-agent-form .selector {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23333" d="M6 9L1 4h10z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 40px;
+    width: 100%;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+    border-color: var(--line-clr);
+    background-color: transparent;
+    border-bottom: 1px solid var(--line-clr);
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    cursor: pointer;
+
+}
+
+.select-agent-form .selector option {
+  background-color: var(--line-clr);
+  color: whitesmoke;
+  padding: 0.5rem;
+  border:transparent;
+  box-shadow: none;
+}
+
+.select-agent-form label {
+    color: whitesmoke;
+    font-weight: bold;
+    margin: 0.3rem auto;
+
+}

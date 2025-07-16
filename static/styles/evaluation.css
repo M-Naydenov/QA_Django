@@ -1,0 +1,81 @@
+.evaluation-widget {
+    padding:0 0 0 0;
+    margin: 3.5rem 3.5rem auto 3.5rem;
+    border-radius: 1rem;
+    background-color: var(--base-clr);
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.tabs {
+    --tab-count: 2;
+    --active: 0;
+    position: relative;
+    display: flex;
+    isolation: isolate;
+    height: 3.5rem;
+    border-block-end: 1px solid var(--base-clr);
+}
+
+.tabs input {
+    display: none;
+}
+
+.tabs label {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color:  var(--secondary-text-clr);
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+}
+
+.tabs input:checked + label {
+    color: var(--secondary-text-clr);
+}
+
+.tabs::after {
+    z-index: -1;
+    pointer-events: none;
+    position: absolute;
+    content: "";
+    inset: 0 0 -1px;
+    width: calc((100%/var(--tab-count)) - 1px);
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: 1px solid var(--base-clr);
+    border-block-end: none;
+    background-color: var(--accent-clr);
+    height: auto;
+    min-height:0;
+
+    translate: calc(var(--active) * 100%);
+    transition: translate 0.5s ease-in-out;
+}
+
+.tabs:has(:checked:nth-of-type(1)) {
+    --active: 0;
+}
+.tabs:has(:checked:nth-of-type(2)) {
+    --active: 1;
+}
+
+.tab-content {
+    color: var(--secondary-text-clr);
+    padding: 1rem;
+}
+
+[class^="content-"] {
+    display: none;
+}
+
+.evaluation-widget:has(:checked:nth-of-type(1)) .content-criteria,
+.evaluation-widget:has(:checked:nth-of-type(2)) .content-details {
+    display: block;
+}

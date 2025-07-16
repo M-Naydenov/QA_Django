@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'images/logo/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/sidebar.js' %}" defer></script>
+    <title>Customer Protection QA</title>
+</head>
+<body>
+{% include 'fragments/sidebar.html' %}
+{% include 'fragments/searchbar.html' %}
+    {% block content %}
+
+
+    {% endblock %}
+<script type="text/javascript" src="{% static 'js/search_script.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pw_icon.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pkt_timer.js' %}"></script>
+</body>
+</html>

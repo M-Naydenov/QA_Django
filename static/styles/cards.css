@@ -1,0 +1,106 @@
+
+.card-button {
+    cursor: pointer;
+    background-color: var(--line-clr);
+    border: 1px solid var(--line-clr);
+    border-radius: 3px;
+    padding: 1px;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.card-button:hover {
+    background-color: var(--accent-clr);
+    border-color: var(--accent-clr);
+}
+
+.evaluations-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 3.5rem 3rem 0 3rem;
+    color: var(--secondary-text-clr);
+    align-items: baseline;
+    align-content: flex-start;
+    justify-content: space-evenly;
+
+}
+
+.evaluation-container{
+    display: flex;
+    position: relative;
+    min-width: 300px;
+    min-height:150px;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    box-sizing: border-box;
+    background-color: var(--base-clr);
+    border: 1px solid var(--base-clr);
+    border-radius: 9px;
+    font-size: 12px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.evaluation-container:hover {
+  transform: scale(1.03);
+  border-color: #43268B;
+  box-shadow: 0 0 8px #43268B;
+  z-index: 1;
+}
+
+.scorecard-container {
+    position: absolute;
+    top: 35%;
+    right:6.5%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.button-wrap {
+    justify-content: stretch;
+    position: absolute;
+    top: 4%;
+    right:5%;
+}
+
+.author-date {
+    position: absolute;
+    bottom: 5%;
+    left:5%;
+    font-size: 10px;
+}
+
+.case-type {
+    position: absolute;
+    top: 44%;
+    left:5%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.agent {
+    position: absolute;
+    top:7%;
+    left:5%;
+}
+.edit-bt {
+    position:absolute;
+    bottom: 7%;
+    right: 5%;
+    width:25%;
+    cursor:pointer;
+    color: whitesmoke;
+    background-color: var(--line-clr);
+    border-color: var(--line-clr);
+    border-radius: 3px;
+    border-style: solid;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.edit-bt:hover {
+    background-color: var(--accent-clr);
+    border-color: var(--accent-clr);
+}

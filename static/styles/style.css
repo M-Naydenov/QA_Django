@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import 'sidebar.css';
+@import 'evaluation.css';
+@import 'start-eval.css';
+@import 'searchbar.css';
+@import 'login.css';
+@import 'cards.css';
+@import 'pkt.css';
+:root {
+    --bg-clr: #181818;
+    --base-clr: #212121;
+    --secondary-base-clr: whitesmoke;
+    --line-clr: #3d3d3d;
+    --secondary-line-clr: #404040;
+    --hover-clr: #222533;
+    --text-clr: #222831;
+    --accent-clr: #43268B;
+    --secondary-text-clr: whitesmoke;
+    --tertiary-text-clr: rgba(193, 193, 193, 0.74);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    line-height: 1.5rem;
+    justify-content: center;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--bg-clr);
+    color: var(--text-clr);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+}
+
+.index {
+    min-height: 100vh;
+    background-color: var(--bg-clr);
+    color: var(--text-clr);
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    background-image: url('../images/purple-pattern.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction:column;
+
+}
+.index h1,.index h2{
+        grid-column: 2;
+        margin: 1.5rem 0 0 2.5rem;
+        line-height: 1.5;
+        width:60%;
+        color: var(--tertiary-text-clr);
+
+    }
+
+.index h3 {
+        grid-column: 2;
+        margin: 1.5rem 0 1rem 3.5rem;
+        width:60%;
+        color: var(--tertiary-text-clr);
+    }
+
+.index ul {
+        list-style-type: disc;
+    }
+
+main {
+    padding: min(30px, 7%);
+}
+
+main p {
+    color: var(--secondary-text-clr);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.container {
+    border: 1px solid var(--line-clr);
+    border-radius: 1em;
+    margin-bottom: 20px;
+    padding: min(3em, 15%);
+
+    h2, p { margin-top: 1em;}
+}

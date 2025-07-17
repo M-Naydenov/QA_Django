@@ -24,14 +24,14 @@ class Agent(AbstractBaseUser, PermissionsMixin):
         max_length = 50,
         validators = [ MinLengthValidator(2), RegexValidator(regex=r'^[a-zA-Z0-9]+$')],
     )
-    team = models.ForeignKey("Team", on_delete=models.SET_NULL, null=True)
+    team = models.ForeignKey("users.Team", on_delete=models.SET_NULL, null=True)
     tl = models.ForeignKey(
         "self",
         on_delete = models.SET_NULL,
         null = True,
         related_name = "agents"
     )
-    role = models.ForeignKey("Role", on_delete=models.SET_NULL, null=True)
+    role = models.ForeignKey("users.Role", on_delete=models.SET_NULL, null=True)
     is_active = models.BooleanField(
         default = True,
     )
@@ -49,14 +49,14 @@ class Role(models.Model):
     work_title = models.CharField(max_length=50,
                                   validators= [MinLengthValidator(2), RegexValidator(regex=r'^[a-zA-Z0-9]+$')],
                                   )
-    department = models.ForeignKey("Department", on_delete=models.SET_NULL, null=True)
+    department = models.ForeignKey("users.Department", on_delete=models.SET_NULL, null=True)
 
 # ---------- the agent's TEAM
 class Team(models.Model):
     team_name = models.CharField(
         validators = [ MinLengthValidator(2), RegexValidator(regex=r'^[a-zA-Z0-9]+$')],
     )
-    department = models.ForeignKey("Department", on_delete=models.SET_NULL, null=True)
+    department = models.ForeignKey("users.Department", on_delete=models.SET_NULL, null=True)
 
 # ---------- the team's DEPARTMENT
 class Department(models.Model):

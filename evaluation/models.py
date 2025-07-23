@@ -35,6 +35,14 @@ class ReAudit(models.Model):
     new_score = models.FloatField()
     previous_ftr = models.BooleanField(null=True, blank=True)
     new_ftr = models.BooleanField(null=True, blank=True)
+    reason = models.ForeignKey("evaluation.ReAuditReason", on_delete=models.SET_NULL, null=True)
+
+class ReAuditReason(models.Model):
+    class Meta:
+        verbose_name = "Re-Audit Reason"
+        verbose_name_plural = "Re-Audit Reasons"
+    reason = models.CharField(validators=[MinLengthValidator(5)],)
+
 
 
 # ---------------- Mistakes data for evaluations

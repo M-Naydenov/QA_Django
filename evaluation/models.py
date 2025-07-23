@@ -26,6 +26,8 @@ class EvaluationTimeline(models.Model):
 
 # ----------------- ReAudit handling data
 class ReAudit(models.Model):
+    class Meta:
+        verbose_name_plural = "Re-Audits"
     evaluation = models.ForeignKey("evaluation.Evaluation", on_delete=models.CASCADE)
     auditor = models.ForeignKey("users.Agent", on_delete=models.CASCADE)
     audit_date = models.DateTimeField(auto_now=True)
@@ -34,6 +36,7 @@ class ReAudit(models.Model):
     previous_ftr = models.BooleanField(null=True, blank=True)
     new_ftr = models.BooleanField(null=True, blank=True)
 
+
 # ---------------- Mistakes data for evaluations
 class EvaluationMistakes(models.Model):
     evaluation = models.ForeignKey("evaluation.Evaluation", on_delete=models.CASCADE)
@@ -41,6 +44,8 @@ class EvaluationMistakes(models.Model):
 
 # ---------------- Evaluation criteria
 class Criteria(models.Model):
+    class Meta:
+        verbose_name_plural = "Criteria"
     case_type = models.ForeignKey("evaluation.CaseType", on_delete=models.CASCADE)
     criteria = models.TextField()
     comment = models.TextField(null=True, blank=True)

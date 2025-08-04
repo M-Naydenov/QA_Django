@@ -1,5 +1,5 @@
 {%  extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
          <div class="pkt-widget">
@@ -23,30 +23,6 @@
                    id="tab4"
                    name="tabs"
             /> <label for="tab4">Q4</label>
-             <input type="radio"
-                   id="tab5"
-                   name="tabs"
-            /> <label for="tab5">Q5</label>
-             <input type="radio"
-                   id="tab6"
-                   name="tabs"
-            /> <label for="tab6">Q6</label>
-             <input type="radio"
-                   id="tab7"
-                   name="tabs"
-            /> <label for="tab7">Q7</label>
-             <input type="radio"
-                   id="tab8"
-                   name="tabs"
-            /> <label for="tab8">Q8</label>
-             <input type="radio"
-                   id="tab9"
-                   name="tabs"
-            /> <label for="tab9">Q9</label>
-             <input type="radio"
-                   id="tab10"
-                   name="tabs"
-            /> <label for="tab10">Q10</label>
          </div>
 
          <div class="tab-content">
@@ -62,26 +38,8 @@
              <div class="content-Q4">
                 <p>Q4</p>
             </div>
-             <div class="content-Q5">
-                <p>Q5</p>
-            </div>
-             <div class="content-Q6">
-                <p>Q6</p>
-            </div>
-             <div class="content-Q7">
-                <p>Q7</p>
-            </div>
-             <div class="content-Q8">
-                <p>Q8</p>
-            </div>
-             <div class="content-Q9">
-                <p>Q9</p>
-            </div>
-             <div class="content-Q10">
-                <p>Q10</p>
-            </div>
          </div>
      <div id="pkt-counter"></div>
      </div>
-
+<script type="text/javascript" src="{% static 'js/pkt_timer.js' %}"></script>
 {% endblock %}

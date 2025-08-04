@@ -57,7 +57,7 @@ class Agent(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     def __str__(self):
-        return self.email
+        return f'{self.first_name} {self.last_name}'
 
 # --------- AGENT PROXIES
 class Analyst(Agent):
@@ -114,7 +114,7 @@ class OperationsManager(Agent):
 # ---------- the agent's ROLE within the team
 class Role(models.Model):
     work_title = models.CharField(max_length=50,
-                                  validators= [MinLengthValidator(2), RegexValidator(regex=r'^[a-zA-Z0-9]+$', message='Work title can only contain letters and numbers.'),],
+                                  validators= [MinLengthValidator(2), RegexValidator(regex=r'^[a-zA-Z0-9 ]+$', message='Work title can only contain letters and numbers.'),],
                                   )
     department = models.ForeignKey("users.Department", on_delete=models.SET_NULL, null=True)
 

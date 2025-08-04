@@ -124,3 +124,37 @@ main p{
   flex-shrink: 0;
   fill: var(--tertiary-text-clr);
 }
+
+#sidebar .logout-form {
+  margin: 0;
+  padding: 0;
+}
+#sidebar:not(.open) .logout-span {
+  display: none;
+}
+#sidebar .logout-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  border-radius: .5em;
+  padding: .85em;
+  color: var(--secondary-text-clr);
+  width: 100%;
+  cursor: pointer;
+}
+.logout-span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#sidebar .logout-btn:hover {
+  background-color: var(--hover-clr);
+}
+
+#sidebar .logout-btn svg {
+  fill: var(--secondary-text-clr);
+}
+#sidebar ul li.logout {
+  margin-bottom: 5px;
+}

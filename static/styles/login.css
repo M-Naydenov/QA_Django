@@ -166,12 +166,12 @@ input::-ms-clear {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23333" d="M6 9L1 4h10z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
-    background-size: 12px;
-    padding-right: 40px;
+    padding: 1rem;
     width: 100%;
     margin: auto;
     align-self: center;
     justify-self: center;
+    color: whitesmoke;
     border-color: var(--line-clr);
     background-color: transparent;
     border-bottom: 1px solid var(--line-clr);
@@ -179,6 +179,7 @@ input::-ms-clear {
     border-left: transparent;
     border-right: transparent;
     cursor: pointer;
+    outline: none;
 
 }
 
@@ -188,4 +189,12 @@ input::-ms-clear {
   padding: 0.5rem;
   border:transparent;
   box-shadow: none;
+}
+
+.register-container .error-message {
+  color: burlywood;
+  margin-top: 0.5rem;
+  font-size: 0.875em;
+  list-style: none;
+  padding-left: 1rem;
 }

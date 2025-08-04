@@ -3,15 +3,14 @@
 {% block content %}
 
         <div class="select-agent-container">
-
         <div class="purple-header">Select an agent and case type to begin the evaluation</div>
          <form class="select-agent-form" method="post">
             {% csrf_token %}
         <div class="form-element">
-            <label for="agent">Agent:</label><select class="selector" id="agent" type="text"></select>
+            {{form.agent.label_tag}} {{form.agent}}
         </div>
         <div class="form-element">
-            <label for="case-type">Case Type:</label><select class="selector" id="case-type" type=""></select>
+            {{form.case_type.label_tag}} {{form.case_type}}
         </div>
         <button type="submit" class="submit-button">Start</button>
     </form>

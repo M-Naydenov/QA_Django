@@ -13,14 +13,8 @@ class StarEvalView(TemplateView):
 class ContinueEvalView(TemplateView):
     template_name = 'evaluation/continue-evaluation.html'
 
-
-class LoginView(TemplateView):
-    template_name = 'user/login.html'
-
-
 class RegisterView(TemplateView):
     template_name = 'user/register.html'
-
 
 class OverviewView(TemplateView):
     template_name = 'evaluation/overview.html'

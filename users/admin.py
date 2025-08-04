@@ -42,8 +42,12 @@ class AgentAdmin(UserAdmin):
             (
                 'Login Details', {
                 'classes': ('wide',),
-                'fields': ('email', 'password1', 'password2', 'department', 'team', 'tl'),
-            }
+                'fields': ('email', 'password1', 'password2'),
+            }),
+            (
+                'Team Affiliation', {
+                'fields': ( 'department', 'team', 'tl', 'role')
+                }
             ),
     )
 

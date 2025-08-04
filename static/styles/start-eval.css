@@ -85,7 +85,12 @@
     border-left: transparent;
     border-right: transparent;
     cursor: pointer;
+    color: whitesmoke;
+    outline: none;
 
+}
+.select-agent-form .input {
+    color: whitesmoke;
 }
 
 .select-agent-form .selector option {

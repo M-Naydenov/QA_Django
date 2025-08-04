@@ -21,5 +21,8 @@ from common.views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', include('common.urls')),
+    path('', include('users.urls')),
+    path('evaluation/', include('evaluation.urls')),
 ]

@@ -1,5 +1,9 @@
 
 .card-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     cursor: pointer;
     background-color: var(--line-clr);
     border: 1px solid var(--line-clr);
@@ -7,6 +11,10 @@
     padding: 1px;
     transition: background-color 0.5s ease;
     box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+}
+
+.delete-form {
+    display: inline;
 }
 
 .card-button:hover {
@@ -39,6 +47,7 @@
     border-radius: 9px;
     font-size: 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .evaluation-container:hover {

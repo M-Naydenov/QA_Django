@@ -57,9 +57,41 @@ class CreateUserForm(BaseUserForm):
 
 
 class UpdateUserForm(UserChangeForm):
+
     class Meta(BaseUserForm.Meta):
         model = UserModel
         fields = '__all__'
+
+class UpdateProfileForm(forms.ModelForm):
+
+    new_password = forms.CharField(widget=forms.PasswordInput, required=False, label='New Password')
+    new_password2 = forms.CharField(widget=forms.PasswordInput, required=False, label='Confirm New Password')
+
+    class Meta(BaseUserForm.Meta):
+        model = UserModel
+        fields = ['email', 'icepor', 'first_name', 'last_name']
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password_1 = cleaned_data.get('new_password')
+        password_2 = cleaned_data.get('new_password2')
+
+        if password_1 or password_2:
+            if password_1 != password_2:
+                raise forms.ValidationError("Passwords don't match")
+        return cleaned_data
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password=self.cleaned_data.get('new_password')
+
+        if password:
+            user.set_password(password)
+
+        if commit:
+            user.save()
+
+        return user
 
 class LoginForm(forms.Form):
 

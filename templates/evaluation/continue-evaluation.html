@@ -38,10 +38,10 @@
             <div class="content-details">
             <div class="details-field"><div class="summary">{{ form.summary }}</div></div>
             <div class="details-field"><div class="score-reason">{{ form.score_reason }}</div></div>
-            <div class="details-field"><div class="case-id">{{ form.case }}</div></div>
-            <div class="details-field"><div class="account-id">{{ form.account_name }}</div></div>
+            <div class="details-field"><div class="case-id">{{ form.case.label_tag }}{{ form.case }}</div></div>
+            <div class="details-field"><div class="account-id">{{ form.account_name.label_tag }}{{ form.account_name }}</div></div>
             {% if case_type.case_type == 'Zendesk' %}
-                    <div class="details-field"><div class="contact-category">{{ form.contact_category }}</div></div>
+                    <div class="details-field"><div class="contact-category">{{ form.contact_category.label_tag }}{{ form.contact_category }}</div></div>
                 {% endif %}
             {% if case_type.ftr_yn %}
                     <div class="details-field"><div class="ftr">{{ form.ftr.label_tag }}{{ form.ftr }}</div></div>

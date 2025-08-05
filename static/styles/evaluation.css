@@ -197,6 +197,30 @@ input[type="checkbox"]:checked {
     justify-content: space-between;
     align-items: center;
 }
+.content-details .case-id {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    text-wrap: nowrap;
+}
+.content-details .account-id {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    text-wrap: nowrap;
+}
+.content-details .contact-category {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 14px;
+    text-wrap: nowrap;
+}
 
 input[type="date"] {
     color: whitesmoke;

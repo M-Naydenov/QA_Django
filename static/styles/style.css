@@ -6,6 +6,7 @@
 @import 'login.css';
 @import 'cards.css';
 @import 'pkt.css';
+@import 'profile.css';
 :root {
     --bg-clr: #181818;
     --base-clr: #212121;

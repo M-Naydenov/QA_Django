@@ -70,6 +70,6 @@ class EvaluationForm(ModelForm):
             'summary':forms.Textarea(attrs={'placeholder':'Provide a description of the contact...'}),
             'score_reason':forms.Textarea(attrs={'placeholder':'Provide a reason for the scoring...'}),
             'case': forms.TextInput( attrs={'placeholder':'Customer identification...'}),
-            'account_name': forms.TextInput(attrs={'placeholder':'Customer identification...'}),
+            'account_name': forms.TextInput(attrs={'placeholder':'Case identification...'}),
             'contact_date': forms.DateInput(attrs={'type':'date'}),
         }

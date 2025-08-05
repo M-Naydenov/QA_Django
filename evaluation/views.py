@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
-from django.forms import ModelForm
-from django.views.generic import ListView, UpdateView, FormView, CreateView, DetailView
+from django.views.generic import ListView, UpdateView, FormView, CreateView, DetailView, DeleteView
 
 from users.models import Agent
 from evaluation.models import Evaluation, CaseType, Criteria, EvaluationTimeline, EvaluationMistakes
@@ -147,6 +146,7 @@ class EditEvaluationView(UpdateView):
 
         evaluation.save()
 
+        # delete and reinsert the mistakes
         evaluation.evaluationmistakes_set.all().delete()
         for field_name, criteria in form.criteria_mapping.items():
             if form.cleaned_data.get(field_name):
@@ -234,6 +234,18 @@ class EvaluationDetailsView(DetailView):
 
         return context
 
+class DeleteEvaluationView(DeleteView):
+    model = Evaluation
+    form_class = EvaluationForm
+    slug_field = 'uuid_field'
+    slug_url_kwarg = 'uuid_field'
+    success_url = reverse_lazy('overview')
+
+    def post(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+class SearchEvaluationView(ListView):
+    pass
 
 class ReAuditView:
     pass

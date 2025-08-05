@@ -9,11 +9,12 @@
     height: fit-content;
     border-radius: 1rem;
     padding: 0.5rem;
-    margin: 7rem auto;
+    margin: 3rem auto;
 }
 
 .profile-container input:focus {
     outline: none;
+    border-bottom: 2px solid var(--accent-clr);
 }
 
 .update-profile-button {
@@ -49,4 +50,5 @@
   border-top: none;
   border-bottom: 2px solid var(--secondary-line-clr);
   box-shadow: none;
+  margin-bottom: 1rem;
 }

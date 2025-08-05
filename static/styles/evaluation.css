@@ -180,6 +180,10 @@ input[type="checkbox"]:checked {
     padding-bottom: 3px;
 }
 
+.content-details input:focus {
+    border-bottom: 2px solid var(--accent-clr);
+}
+
 .content-details .contact-date {
     padding-left: 5px;
     display: flex;

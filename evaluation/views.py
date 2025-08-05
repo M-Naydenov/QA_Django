@@ -2,15 +2,21 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
-from django.views.generic import ListView, UpdateView, FormView, CreateView, DetailView, DeleteView
+from django.views.generic import ListView, UpdateView, CreateView, DetailView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
+from evaluation.decorators import exclude_roles, allow_roles
 from users.models import Agent
-from evaluation.models import Evaluation, CaseType, Criteria, EvaluationTimeline, EvaluationMistakes
+from evaluation.models import Evaluation, CaseType, EvaluationTimeline, EvaluationMistakes
 from evaluation.forms import AgentCaseSelectionForm, EvaluationForm
 
 
 # Create your views here.
+
+@exclude_roles('Analyst')
 def start_evaluation_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     if request.method == 'POST':
         form = AgentCaseSelectionForm(request.POST, user = request.user)
         if form.is_valid():
@@ -22,7 +28,8 @@ def start_evaluation_view(request):
     else:
         form = AgentCaseSelectionForm(user = request.user)
     return render(request, 'evaluation/start-evaluation.html', {'form': form})
-class EvaluationCreateView(CreateView):
+@exclude_roles('Analyst')
+class EvaluationCreateView(LoginRequiredMixin, CreateView):
     model = Evaluation
     form_class = EvaluationForm
     template_name = 'evaluation/continue-evaluation.html'
@@ -96,8 +103,8 @@ class EvaluationCreateView(CreateView):
     def get(self, request, *args, **kwargs):
         self.request.session['evaluation_start_time'] = timezone.now().isoformat()
         return super().get(request, *args, **kwargs)
-
-class EditEvaluationView(UpdateView):
+@exclude_roles('Analyst')
+class EditEvaluationView(LoginRequiredMixin, UpdateView):
     model = Evaluation
     form_class = EvaluationForm
     template_name='evaluation/continue-evaluation.html'
@@ -169,20 +176,18 @@ class EditEvaluationView(UpdateView):
         self.request.session['evaluation_start_time'] = timezone.now().isoformat()
         return super().get(request, *args, **kwargs)
 
-
-class EvaluationListView(ListView):
+class EvaluationListView(LoginRequiredMixin, ListView):
     model = Evaluation
     template_name = 'evaluation/overview.html'
     context_object_name = 'evaluations'
 
     def get_queryset(self):
         if self.request.user.role.work_title == 'Analyst':
-            Evaluation.objects.filter(agent=self.request.user).order_by('-evaluation_date')
+            return Evaluation.objects.filter(agent=self.request.user).order_by('-evaluation_date')
         elif self.request.user.role.work_title == 'Senior Analyst':
-            Evaluation.objects.filter(evaluator=self.request.user).order_by('-evaluation_date')
+            return Evaluation.objects.filter(evaluator=self.request.user).order_by('-evaluation_date')
         else:
             return Evaluation.objects.filter(agent__team=self.request.user.team).order_by('-evaluation_date')
-        return redirect('home')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -194,8 +199,7 @@ class EvaluationListView(ListView):
         context['evaluations'] = evaluations
         return context
 
-
-class EvaluationDetailsView(DetailView):
+class EvaluationDetailsView(LoginRequiredMixin, DetailView):
     model = Evaluation
     form_class = EvaluationForm
     template_name = 'evaluation/continue-evaluation.html'
@@ -233,8 +237,8 @@ class EvaluationDetailsView(DetailView):
         context['view_only'] = True
 
         return context
-
-class DeleteEvaluationView(DeleteView):
+@exclude_roles('Analyst','Senior Analys')
+class DeleteEvaluationView(LoginRequiredMixin, DeleteView):
     model = Evaluation
     form_class = EvaluationForm
     slug_field = 'uuid_field'
@@ -244,7 +248,7 @@ class DeleteEvaluationView(DeleteView):
     def post(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
 
-class SearchEvaluationView(ListView):
+class SearchEvaluationView(LoginRequiredMixin, ListView):
     pass
 
 class ReAuditView:

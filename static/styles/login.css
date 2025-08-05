@@ -191,9 +191,9 @@ input::-ms-clear {
   box-shadow: none;
 }
 
-.register-container .error-message {
+.register-container .error-message,
+.login-container .error-message {
   color: burlywood;
-  margin-top: 0.5rem;
   font-size: 0.875em;
   list-style: none;
   padding-left: 1rem;
